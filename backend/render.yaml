@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: nexabank-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        fromGroup: banking-secrets
+      - key: MONGO_URI
+        fromGroup: banking-secrets
+      - key: JWT_SECRET
+        fromGroup: banking-secrets
+      - key: JWT_REFRESH_SECRET
+        fromGroup: banking-secrets
+      - key: ML_API_URL
+        fromGroup: banking-secrets
+      - key: CLIENT_URL
+        fromGroup: banking-secrets
